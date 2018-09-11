@@ -1,4 +1,4 @@
-package com.example.helloworld.resources;
+package com.example.helloworld.resources.api;
 
 import com.example.helloworld.core.Saying;
 import com.google.common.base.Optional;

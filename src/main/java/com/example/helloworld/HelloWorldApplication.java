@@ -3,7 +3,8 @@ package com.example.helloworld;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import com.example.helloworld.resources.HelloWorldResource;
+import io.dropwizard.bundles.assets.ConfiguredAssetsBundle;
+import com.example.helloworld.resources.api.HelloWorldResource;
 import com.example.helloworld.health.TemplateHealthCheck;
 
 public class HelloWorldApplication extends Application<HelloWorldConfiguration> {
@@ -18,7 +19,7 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
 
     @Override
     public void initialize(Bootstrap<HelloWorldConfiguration> bootstrap) {
-        // nothing to do yet
+        bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/", "index.html"));
     }
 
     @Override
@@ -33,5 +34,6 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
             new TemplateHealthCheck(configuration.getTemplate());
         environment.healthChecks().register("template", healthCheck);
         environment.jersey().register(resource);
+        //environment.jersey().setUrlPattern("/api/*");
     }
 }
