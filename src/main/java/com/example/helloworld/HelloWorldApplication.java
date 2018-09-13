@@ -34,6 +34,5 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
             new TemplateHealthCheck(configuration.getTemplate());
         environment.healthChecks().register("template", healthCheck);
         environment.jersey().register(resource);
-        //environment.jersey().setUrlPattern("/api/*");
     }
 }

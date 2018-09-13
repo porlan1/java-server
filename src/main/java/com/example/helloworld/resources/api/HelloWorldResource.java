@@ -10,6 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.concurrent.atomic.AtomicLong;
+import org.owasp.encoder.Encode;
 
 @Path("/hello-world")
 @Produces(MediaType.APPLICATION_JSON)
@@ -27,7 +28,7 @@ public class HelloWorldResource {
     @GET
     @Timed
     public Saying sayHello(@QueryParam("name") Optional<String> name) {
-        final String value = String.format(template, name.or(defaultName));
+        final String value = String.format(Encode.forHtml(template), Encode.forHtml(name.or(defaultName)));
         return new Saying(counter.incrementAndGet(), value);
     }
 }
