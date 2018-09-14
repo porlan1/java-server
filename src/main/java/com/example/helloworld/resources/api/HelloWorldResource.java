@@ -1,6 +1,6 @@
 package com.example.helloworld.resources.api;
 
-import com.example.helloworld.core.Saying;
+import com.example.helloworld.core.Converter;
 import com.google.common.base.Optional;
 import com.codahale.metrics.annotation.Timed;
 
@@ -10,9 +10,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.Map;
 import org.owasp.encoder.Encode;
 
-@Path("/hello-world")
+@Path("/convert")
 @Produces(MediaType.APPLICATION_JSON)
 public class HelloWorldResource {
     private final String template;
@@ -27,9 +28,9 @@ public class HelloWorldResource {
 
     @GET
     @Timed
-    public Saying sayHello(@QueryParam("name") Optional<String> name) {
-        final String value = String.format(Encode.forHtml(template), Encode.forHtml(name.or(defaultName)));
-        return new Saying(counter.incrementAndGet(), value);
+    public Map<String, String> converter(@QueryParam("input") Optional<String> input) throws Exception {
+        final String value = String.format(Encode.forHtml(input.or(defaultName)));
+        Converter converter = new Converter(value);
+        return converter.convertInput();
     }
 }
-
