@@ -1,5 +1,7 @@
 /Users/porlan1/java-server/src/main/java/com/example/helloworld/HelloWorldApplication.java
 /Users/porlan1/java-server/src/main/java/com/example/helloworld/resources/api/HelloWorldResource.java
 /Users/porlan1/java-server/src/main/java/com/example/helloworld/health/TemplateHealthCheck.java
+/Users/porlan1/java-server/src/main/java/com/example/helloworld/core/QueryParser.java
+/Users/porlan1/java-server/src/main/java/com/example/helloworld/core/Converter.java
 /Users/porlan1/java-server/src/main/java/com/example/helloworld/core/Saying.java
 /Users/porlan1/java-server/src/main/java/com/example/helloworld/HelloWorldConfiguration.java
