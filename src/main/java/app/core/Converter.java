@@ -1,4 +1,4 @@
-package com.example.helloworld.core;
+package app.core;
 import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -49,7 +49,7 @@ public class Converter {
 		returnValue.put("initNum", Float.toString(inputNumber));
 		returnValue.put("initUnit", inputType);
 		returnValue.put("returnNum", Float.toString(convertedValue));
-		returnValue.put("returnUnit", Float.toString(convertedValue));
+		returnValue.put("returnUnit", convertedTo.get(inputType));
 		returnValue.put("string", returnString);
 		return returnValue;
 	}

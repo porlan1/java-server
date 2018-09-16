@@ -1,11 +1,11 @@
-package com.example.helloworld;
+package app;
 
 import io.dropwizard.Configuration;
 import io.dropwizard.bundles.assets.AssetsBundleConfiguration;
 import io.dropwizard.bundles.assets.AssetsConfiguration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class HelloWorldConfiguration extends Configuration implements AssetsBundleConfiguration {
+public class ConverterConfiguration extends Configuration implements AssetsBundleConfiguration {
     
     @JsonProperty
     private final AssetsConfiguration assets = AssetsConfiguration.builder().build();

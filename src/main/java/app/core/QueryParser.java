@@ -1,4 +1,5 @@
-package com.example.helloworld.core;
+package app.core;
+import app.resources.exceptions.IncompleteDataException;
 
 public class QueryParser {
 	String queryString;
@@ -41,7 +42,7 @@ public class QueryParser {
 		}
 		if (invalidNumber || invalidUnit) {
 			String exceptionString = (invalidNumber && invalidUnit)?"invalid number and unit":(invalidNumber? "invalid number": "invalid unit");
-			throw new Exception(exceptionString);
+			throw new IncompleteDataException(exceptionString);
 		}
 	}
 }
