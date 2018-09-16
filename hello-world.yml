@@ -2,6 +2,9 @@ server:
   rootPath: /api/
   type: simple
   applicationContextPath: /
+  connector:
+    type: http
+    port: 8080
 
 assets:
   overrides:
